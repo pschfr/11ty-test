@@ -10,7 +10,7 @@
 		<ul>
 			{%- for post in collections.posts -%}
 	  			<li>
-					<a href="{{ 'posts/' + post.fileSlug | url }}">
+					<a href="{{ post.url | url }}">
 						<h2>{{ post.data.title }}</h2>
 					</a>
 				</li>
