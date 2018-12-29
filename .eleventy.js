@@ -6,12 +6,12 @@ module.exports = function(eleventyConfig) {
 	});
 
 	// Simple date filter using toLocaleDateString
-	eleventyConfig.addFilter("prettyDate", function(value) {
-		return new Date(value).toLocaleDateString("en-US", {
-			timeZone: "UTC",
-			month: "long",
-			day: "numeric",
-			year: "numeric"
-		});
-	});
+	eleventyConfig.addFilter("prettyDate", require("./_filters/dates.js"));
+
+	// Return correct template formats
+	return {
+		templateFormats: ["njk", "md"],
+		htmlTemplateEngine: "njk",
+		markdownTemplateEngine: "njk"
+	}
 };
