@@ -13,8 +13,8 @@
 					<a href="{{ 'posts/' + post.fileSlug | url }}">
 						<h2>{{ post.data.title }}</h2>
 					</a>
-					<date datetime="{{ post.data.date }}">
-						{{ post.data.date }}
+					<date datetime="{{ post.data.date.toUTCString() }}">
+						{{ post.data.date.toUTCString() }}
 					</date>
 				</li>
 			{%- endfor -%}
