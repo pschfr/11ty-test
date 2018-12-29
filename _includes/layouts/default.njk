@@ -7,5 +7,10 @@
 	</head>
 	<body>
 		{{ content | safe }}
+		<ul>
+			{%- for post in collections.posts -%}
+	  			<li>{{ post.data.title }}</li>
+			{%- endfor -%}
+		</ul>
 	</body>
 </html>
