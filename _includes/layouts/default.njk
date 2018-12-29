@@ -9,7 +9,11 @@
 		{{ content | safe }}
 		<ul>
 			{%- for post in collections.posts -%}
-	  			<li>{{ post.data.title }}</li>
+	  			<li>
+					<a href="{{ 'posts/' + post.fileSlug | url }}">
+						<h2>{{ post.data.title }}</h2>
+					</a>
+				</li>
 			{%- endfor -%}
 		</ul>
 	</body>
