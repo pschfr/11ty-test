@@ -14,7 +14,7 @@
 						<h2>{{ post.data.title }}</h2>
 					</a>
 					<date datetime="{{ post.data.date.toUTCString() }}">
-						{{ post.data.date.toUTCString() }}
+						{{ post.data.date.toUTCString() | prettyDate }}
 					</date>
 				</li>
 			{%- endfor -%}
