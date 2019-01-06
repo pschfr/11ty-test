@@ -5,7 +5,11 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>{{title}}</title>
 		{% set css %}{% include "styles/main.css" %}{% endset %}
-		<style>{{ css | cssMin | safe }}</style>
+		{% if project.environment == "production" %}
+			<style>{{ css | cssMin | safe }}</style>
+		{% else %}
+			<style>{{ css | safe }}</style>
+		{% endif %}
 	</head>
 	<body>
 		{{ content | safe }}
