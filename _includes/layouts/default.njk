@@ -3,7 +3,13 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>{{title}}</title>
+		<title>
+			{% if title %}
+				{{title}}
+			{% else %}
+				11ty-test
+			{% endif %}
+		</title>
 		{% set css %}{% include "styles/main.css" %}{% endset %}
 		{% if project.environment == "production" %}
 			<style>{{ css | cssMin | safe }}</style>
@@ -12,18 +18,15 @@
 		{% endif %}
 	</head>
 	<body>
+		<header>
+			<h1>
+				{% if title %}
+					{{title}}
+				{% else %}
+					11ty-test
+				{% endif %}
+			</h1>
+		</header>
 		{{ content | safe }}
-		<ul>
-			{%- for post in collections.posts -%}
-	  			<li>
-					<a href="{{ 'posts/' + post.fileSlug | url }}">
-						<h2>{{ post.data.title }}</h2>
-					</a>
-					<date datetime="{{ post.data.date.toUTCString() }}">
-						{{ post.data.date.toUTCString() | prettyDate }}
-					</date>
-				</li>
-			{%- endfor -%}
-		</ul>
 	</body>
 </html>

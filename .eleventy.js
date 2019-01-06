@@ -2,7 +2,7 @@
 module.exports = function(eleventyConfig) {
 	// Grabs all files in _posts
 	eleventyConfig.addCollection("posts", function(collection) {
-		return collection.getFilteredByGlob("_posts/*.*");
+		return collection.getFilteredByGlob("posts/*.*");
 	});
 
 	// Simple date filter using toLocaleDateString
