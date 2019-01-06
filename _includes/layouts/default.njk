@@ -5,9 +5,9 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>
 			{% if title %}
-				{{title}}
+				{{title}} &mdash; {{ about.name }}
 			{% else %}
-				11ty-test
+				{{ about.name }}
 			{% endif %}
 		</title>
 		{% set css %}{% include "styles/main.css" %}{% endset %}
@@ -23,13 +23,13 @@
 				{% if title %}
 					{{title}}
 				{% else %}
-					11ty-test
+					{{ about.name }}
 				{% endif %}
 			</h1>
 		</header>
 		{{ content | safe }}
 		<footer>
-			<a href="https://github.com/pschfr/11ty-test/tree/master/{{ page.inputPath }}" target="_blank">Edit this page on GitHub.</a>
+			<a href="{{ about.source }}tree/master/{{ page.inputPath }}" target="_blank">Edit this page on GitHub.</a>
 		</footer>
 	</body>
 </html>
