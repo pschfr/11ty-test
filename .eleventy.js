@@ -6,8 +6,8 @@ module.exports = function(eleventyConfig) {
 	});
 
 	// Simple date filter using toLocaleDateString
-	eleventyConfig.addFilter("prettyDate", require("_filters/prettyDate.js"));
+	eleventyConfig.addFilter("prettyDate", require("./_filters/prettyDate.js"));
 
 	// CSS minification filter powered by clean-css
-	eleventyConfig.addFilter("cssMin", require("_filters/cssMin.js"));
+	eleventyConfig.addFilter("cssMin", require("./_filters/cssMin.js"));
 };
