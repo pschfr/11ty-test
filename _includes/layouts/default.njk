@@ -5,7 +5,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>{{title}}</title>
 		{% set css %}{% include "styles/main.css" %}{% endset %}
-		<style>{{ css }}</style>
+		<style>{{ css | cssMin | safe }}</style>
 	</head>
 	<body>
 		{{ content | safe }}

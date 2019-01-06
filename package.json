@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/pschfr/11ty-test/issues"
   },
-  "homepage": "https://github.com/pschfr/11ty-test#readme"
+  "homepage": "https://github.com/pschfr/11ty-test#readme",
+  "dependencies": {
+    "clean-css": "^4.2.1"
+  }
 }
