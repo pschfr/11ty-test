@@ -1,0 +1,23 @@
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>
+		{% if title %}
+			{{title}} &middot; {{ about.name }}
+		{% else %}
+			{{ about.name }}
+		{% endif %}
+	</title>
+	{% set css %}{% include "styles/main.css" %}{% endset %}
+	{% if project.environment == "production" %}
+		<style>{{ css | cssMin | safe }}</style>
+	{% else %}
+		<style>{{ css | safe }}</style>
+	{% endif %}
+	{% set js %}{% include "scripts/main.js" %}{% endset %}
+	{% if project.environment == "production" %}
+		<script>{{ js | jsMin | safe }}</script>
+	{% else %}
+		<script>{{ js | safe }}</script>
+	{% endif %}
+</head>
