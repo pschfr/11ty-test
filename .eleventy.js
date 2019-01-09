@@ -11,6 +11,9 @@ module.exports = function(eleventyConfig) {
 	// CSS minification filter powered by clean-css
 	eleventyConfig.addFilter("cssMin", require("./_filters/cssMin.js"));
 
+	// JS minification filter powered by uglify-js
+	eleventyConfig.addFilter("jsMin", require("./_filters/jsMin.js"));
+
 	// HTML minification transform powered by html-minifier
 	eleventyConfig.addTransform("htmlMin", require("./_filters/htmlMin.js"));
 };

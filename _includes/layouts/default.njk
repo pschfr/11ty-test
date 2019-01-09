@@ -16,6 +16,12 @@
 		{% else %}
 			<style>{{ css | safe }}</style>
 		{% endif %}
+		{% set js %}{% include "scripts/main.js" %}{% endset %}
+		{% if project.environment == "production" %}
+			<script>{{ js | jsMin | safe }}</script>
+		{% else %}
+			<script>{{ js | safe }}</script>
+		{% endif %}
 	</head>
 	<body>
 		<header>
