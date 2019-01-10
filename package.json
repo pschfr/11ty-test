@@ -4,6 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "build": "npx eleventy",
+    "watch": "npx eleventy --watch",
+    "start": "npx eleventy --serve",
+    "debug": "DEBUG=Eleventy* npx eleventy --serve",
+    "prod": "DEBUG=Eleventy* ELEVENTY_ENV=production npx eleventy --serve",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -21,6 +26,7 @@
   },
   "homepage": "https://github.com/pschfr/11ty-test#readme",
   "dependencies": {
+    "@11ty/eleventy": "^0.6.0",
     "clean-css": "^4.2.1",
     "html-minifier": "^3.5.21",
     "uglify-js": "^3.4.9"
