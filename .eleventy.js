@@ -1,3 +1,6 @@
+// Require dependencies used here
+const Nunjucks = require("nunjucks");
+
 // This file overrides any Eleventy settings we needed to change.
 module.exports = function(eleventyConfig) {
 	// Grabs all files in _posts
@@ -16,4 +19,12 @@ module.exports = function(eleventyConfig) {
 
 	// HTML minification transform powered by html-minifier
 	eleventyConfig.addTransform("htmlMin", require("./_filters/minifiers/html.js"));
+
+	// Sets up a custom Nunjucks environment, so we can include items from node_modules
+	let nunjucksEnvironment = new Nunjucks.Environment(
+		new Nunjucks.FileSystemLoader(["_includes", "node_modules"])
+	);
+
+	// Sets Eleventy to use our Nunjucks environment instead of the default
+	eleventyConfig.setLibrary("njk", nunjucksEnvironment);
 };

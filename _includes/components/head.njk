@@ -8,7 +8,10 @@
 			{{ about.name }}
 		{% endif %}
 	</title>
-	{% set css %}{% include "styles/main.css" %}{% endset %}
+	{% set css %}
+		{% include "modern-normalize/modern-normalize.css" %}
+		{% include "styles/main.css" %}
+	{% endset %}
 	{% if project.environment == "production" %}
 		<style>{{ css | cssMin | safe }}</style>
 	{% else %}
