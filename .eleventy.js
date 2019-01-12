@@ -20,6 +20,9 @@ module.exports = function(eleventyConfig) {
 	// HTML minification transform powered by html-minifier
 	eleventyConfig.addTransform("htmlMin", require("./_filters/minifiers/html.js"));
 
+	// Returns a profile image from Gravatar
+	eleventyConfig.addShortcode("gravatar", require("./_filters/gravatar.js"));
+
 	// Sets up a custom Nunjucks environment, so we can include items from node_modules
 	let nunjucksEnvironment = new Nunjucks.Environment(
 		new Nunjucks.FileSystemLoader(["_includes", "node_modules"])
