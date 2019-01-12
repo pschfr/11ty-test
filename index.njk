@@ -4,9 +4,11 @@ layout: layouts/default
 <ul>
 	{%- for post in collections.posts -%}
 		<li>
-			<a href="{{ 'posts/' + post.fileSlug | url }}">
-				<h2>{{ post.data.title }}</h2>
-			</a>
+			<h2>
+				<a href="{{ 'posts/' + post.fileSlug | url }}">
+					{{ post.data.title }}
+				</a>
+			</h2>
 			<date datetime="{{ post.data.date.toUTCString() }}">
 				{{ post.data.date.toUTCString() | prettyDate }}
 			</date>
