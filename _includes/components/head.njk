@@ -8,15 +8,7 @@
 			{{ about.name }}
 		{% endif %}
 	</title>
-	{#
-		This is kinda complex. The set tag here captures the CSS from
-		node_modules (thanks to the custom Nunjucks environment), and
-		our own styles file. It then gets outputted (?) inline to the
-		style tag below, and possibly minified.
-		The same thing happens to the JS below as well.
-	#}
 	{% set css %}
-		{% include "modern-normalize/modern-normalize.css" %}
 		{% include "styles/main.css" %}
 	{% endset %}
 	{% if project.environment == "production" %}
@@ -24,7 +16,9 @@
 	{% else %}
 		<style>{{ css | safe }}</style>
 	{% endif %}
-	{% set js %}{% include "scripts/main.js" %}{% endset %}
+	{% set js %}
+		{% include "scripts/main.js" %}
+	{% endset %}
 	{% if project.environment == "production" %}
 		<script>{{ js | jsMin | safe }}</script>
 	{% else %}

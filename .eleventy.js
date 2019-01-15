@@ -1,6 +1,3 @@
-// Require dependencies used here
-const Nunjucks = require("nunjucks");
-
 // This file overrides any Eleventy settings we needed to change.
 module.exports = function(eleventyConfig) {
 	// Grabs all files in _posts
@@ -22,12 +19,4 @@ module.exports = function(eleventyConfig) {
 
 	// Returns a profile image from Gravatar
 	eleventyConfig.addShortcode("gravatar", require("./_filters/gravatar.js"));
-
-	// Sets up a custom Nunjucks environment, so we can include items from node_modules
-	let nunjucksEnvironment = new Nunjucks.Environment(
-		new Nunjucks.FileSystemLoader(["_includes", "node_modules"])
-	);
-
-	// Sets Eleventy to use our Nunjucks environment instead of the default
-	eleventyConfig.setLibrary("njk", nunjucksEnvironment);
 };
