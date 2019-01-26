@@ -3,6 +3,10 @@ function share(URL) {
 		title: document.title,
 		text: "Share test",
 		url: URL
-	}).then(() => console.log('Successful share'))
-      .catch((error) => console.error('Error sharing', error));
+	}).then(function() {
+		console.log('Successful share');
+	})
+      .catch(function(error) {
+		console.error('Error sharing', error);
+	});
 }
