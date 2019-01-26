@@ -1,1 +1,8 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Three &middot; Paul Schaefer</title><style></style><script></script></head><body><header><h1>Three</h1></header><p>This is post test three.</p><footer><a href="https://github.com/pschfr/11ty-test/tree/master/./posts/post3.md" target="_blank">Edit this page on GitHub.</a></footer></body></html>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Three &middot; Paul Schaefer</title><style></style><script>function share(URL) {
+	navigator.share({
+		title: document.title,
+		text: "Share test",
+		url: URL
+	}).then(() => console.log('Successful share'))
+      .catch((error) => console.error('Error sharing', error));
+}</script></head><body><header><h1>Three</h1></header><a href="javascript:(share(window.location.href))">Share</a><br><p>This is post test three.</p><footer><a href="https://github.com/pschfr/11ty-test/tree/master/./posts/post3.md" target="_blank">Edit this page on GitHub.</a></footer></body></html>
